@@ -1,4 +1,4 @@
-package com.example.sprite.ui.gallery;
+package com.example.sprite.screens.gallery;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

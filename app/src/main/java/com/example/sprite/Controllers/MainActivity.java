@@ -1,9 +1,10 @@
-package com.example.sprite;
+package com.example.sprite.Controllers;
 
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 
+import com.example.sprite.R;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
