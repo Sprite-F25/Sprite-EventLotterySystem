@@ -4,28 +4,31 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.example.sprite.Models.Event;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 public class EventsListViewModel extends ViewModel {
 
-    private final MutableLiveData<List<String>> events;
+    private final MutableLiveData<List<Event>> events;
 
     public EventsListViewModel() {
         events = new MutableLiveData<>();
         // Example data - we'll add firestore stuff later and convert from Strings to Events
-        List<String> initialEvents = new ArrayList<>();
-        initialEvents.add("Event 1");
-        initialEvents.add("Event 2");
+        List<Event> initialEvents = new ArrayList<>();
+        initialEvents.add(new Event("title", "description", "location", new Date(), 20.00));
+        initialEvents.add(new Event("title2", "description2", "location2", new Date(), 22.00));
         events.setValue(initialEvents);     // getValue and setValue are methods for MutableLiveData objects
     }
 
-    public LiveData<List<String>> getEvents() {
+    public LiveData<List<Event>> getEvents() {
         return events;
     }
 
-    public void addEvent(String event) {
-        List<String> current = events.getValue();
+    public void addEvent(Event event) {
+        List<Event> current = events.getValue();
         if (current != null) {
             current.add(event);
             events.setValue(current);
