@@ -12,6 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:queryHint="Search Here"
+        android:background="@drawable/search_bar_background"
+        android:layout_margin="16dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" >
     </SearchView>
@@ -28,7 +30,7 @@
         >
     </Button>
 
-    <!-- "List" View of Events - recycler views are scrollable containers-->
+    <!-- "List" View of Events - recycler views are scrollable containers, more efficient for large datasets-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view_events"
         android:layout_width="match_parent"
