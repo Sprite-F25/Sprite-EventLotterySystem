@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.sprite.ArrayAdapters.EventAdapter;
+import com.example.sprite.Adapters.EventAdapter;
 import com.example.sprite.Models.Event;
 import com.example.sprite.R;
 
@@ -52,7 +52,7 @@ public class EventsListFragment extends Fragment {
         mViewModel.getEvents().observe(getViewLifecycleOwner(), events -> {
             adapter.setEvents(events);
             adapter.notifyDataSetChanged();
-            //filterButton.setText("Events count: " + events.size());
+            filterButton.setText("Events count: " + events.size());
         });
 
         return view;

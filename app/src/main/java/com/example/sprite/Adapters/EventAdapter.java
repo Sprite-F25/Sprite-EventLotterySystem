@@ -1,4 +1,4 @@
-package com.example.sprite.ArrayAdapters;
+package com.example.sprite.Adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,7 +50,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
 
         holder.statusButton.setText(event.getStatus() != null ? event.getStatus() : "Status");
 
-        // TODO: load image with Glide/Coil if you add imageUri/Bitmap
+        // need to load image with Glide/Coil if we add imageUri/Bitmap
         // Glide.with(holder.image.getContext()).load(event.getImageUri()).into(holder.image);
     }
 
@@ -60,6 +60,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
     }
 
 
+    // only calls findViewByID once for each view to increase performance
     static class EventViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView title, description, date, location;
