@@ -1,4 +1,4 @@
-package com.example.sprite.screens.eventsList;
+package com.example.sprite.screens.viewEntrants;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,24 +12,24 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.sprite.R;
 
-public class EventsListFragment extends Fragment {
+public class ViewEntrantsFragment extends Fragment {
 
-    private EventsListViewModel mViewModel;
+    private ViewEntrantsViewModel mViewModel;
 
-    public static EventsListFragment newInstance() {
-        return new EventsListFragment();
+    public static ViewEntrantsFragment newInstance() {
+        return new ViewEntrantsFragment();
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_events_list, container, false);
+        return inflater.inflate(R.layout.fragment_view_entrants, container, false);
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mViewModel = new ViewModelProvider(this).get(EventsListViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(ViewEntrantsViewModel.class);
         // TODO: Use the ViewModel
     }
 
