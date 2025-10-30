@@ -9,15 +9,14 @@
     <color name="white">#FFFFFFFF</color>
 
 
+
+
+
     <color name="cream">#FAF3DD</color>
     <color name="green1">#C8D5B9</color>
     <color name="green2">#8FC0A9</color>
     <color name="green3">#68B0AB</color>
     <color name="dark_grey">#696D7D</color>
     <color name="outline">#979797</color>
-    <color name="light_blue_400">#FF29B6F6</color>
-    <color name="light_blue_600">#FF039BE5</color>
-    <color name="gray_400">#FFBDBDBD</color>
-    <color name="gray_600">#FF757575</color>
 
 </resources>
