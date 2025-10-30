@@ -37,8 +37,8 @@ public class EntrantAdapter extends RecyclerView.Adapter<EntrantAdapter.EntrantV
     @Override
     public void onBindViewHolder(@NonNull EntrantViewHolder holder, int position) {
         Entrant entrant = entrants.get(position);
-        //holder.name.setText(entrant.getName());
-        //holder.role.setText(entrant.getUserRole());
+        holder.name.setText(entrant.getName());
+        holder.role.setText(entrant.getUserRole());
     }
 
     @Override
