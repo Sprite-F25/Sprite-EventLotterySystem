@@ -7,21 +7,16 @@ public class Event {
     private String description;
     private Date date;
     private String location;
-    private String status;
-    private Double price;  // do we really need price though, since we aren't forcing users to pay anything to sign up
 
     // need images...Bitmap, URI (String) or drawable(int for resource ID)?
     // also need getters and setters for images
 
 
     // constructor
-
-
-    public Event(String title, String description, String location, Date date, Double price) {
+    public Event(String title, String description, String location, Date date) {
         this.location = location;
         this.description = description;
         this.title = title;
-        this.price = price;
         this.date = date;
     }
 
@@ -56,21 +51,5 @@ public class Event {
 
     public void setLocation(String location) {
         this.location = location;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
     }
 }
