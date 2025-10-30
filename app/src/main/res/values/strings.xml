@@ -14,9 +14,9 @@
     <!-- View Entrants page dropdown options -->
         <string-array name="entrant_status_options">
             <item>Waiting List</item>
-            <item>Chosen Entrants</item>
-            <item>Cancelled Entrants</item>
-            <item>Final Entrants</item>
+            <item>Chosen</item>
+            <item>Cancelled</item>
+            <item>Final</item>
         </string-array>
 
 </resources>

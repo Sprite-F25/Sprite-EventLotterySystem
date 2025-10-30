@@ -11,9 +11,7 @@
     android:foreground="?attr/selectableItemBackground"
     app:cardCornerRadius="16dp"
     app:cardElevation="12dp"
-    app:useCompatPadding="true"
-    app:strokeColor="?attr/colorOutline"
-    app:strokeWidth="1dp">
+    app:useCompatPadding="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

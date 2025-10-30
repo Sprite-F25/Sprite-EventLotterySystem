@@ -18,6 +18,13 @@
         tools:layout="@layout/fragment_events_list" />
 
     <fragment
+        android:id="@+id/view_entrant_delete_later"
+        android:name="com.example.sprite.screens.viewEntrants.ViewEntrantsFragment"
+        android:label="View Entrants"
+        tools:layout="@layout/fragment_view_entrants" />
+
+
+    <fragment
         android:id="@+id/nav_gallery"
         android:name="com.example.sprite.screens.gallery.GalleryFragment"
         android:label="@string/menu_gallery"

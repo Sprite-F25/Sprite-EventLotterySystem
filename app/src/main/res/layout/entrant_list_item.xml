@@ -7,21 +7,19 @@
     android:layout_margin="8dp"
     app:cardCornerRadius="16dp"
     app:cardElevation="12dp"
-    app:useCompatPadding="true"
-    app:strokeColor="?attr/colorOutline"
-    app:strokeWidth="1dp">
+    app:useCompatPadding="true">
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:padding="16dp">
 
             <!-- Entrant Name -->
             <TextView
                 android:id="@+id/entrant_name"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Name"
                 android:textStyle="bold"
                 android:textSize="16sp"
@@ -31,8 +29,8 @@
             <!-- Entrant User Role -->
             <TextView
                 android:id="@+id/entrant_user_role"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="User Role"
                 android:textSize="14sp" />
 

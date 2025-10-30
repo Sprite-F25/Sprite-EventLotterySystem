@@ -20,7 +20,7 @@ public class EventsListViewModel extends ViewModel {
         List<Event> initialEvents = new ArrayList<>();
         initialEvents.add(new Event("title", "description", "location", new Date(), 20.00));
         initialEvents.add(new Event("title2", "description2", "location2", new Date(), 22.00));
-        events.setValue(initialEvents);     // getValue and setValue are methods for MutableLiveData objects
+        events.setValue(initialEvents);
     }
 
     public LiveData<List<Event>> getEvents() {

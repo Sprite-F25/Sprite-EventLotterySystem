@@ -3,7 +3,6 @@ package com.example.sprite.Adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -48,8 +47,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
         SimpleDateFormat sdf = new SimpleDateFormat("MMM dd, yyyy", Locale.getDefault());
         holder.date.setText(sdf.format(event.getDate()));
 
-        holder.statusButton.setText(event.getStatus() != null ? event.getStatus() : "Status");
-
         // need to load image with Glide/Coil if we add imageUri/Bitmap
         // Glide.with(holder.image.getContext()).load(event.getImageUri()).into(holder.image);
     }
@@ -64,7 +61,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
     static class EventViewHolder extends RecyclerView.ViewHolder {
         ImageView image;
         TextView title, description, date, location;
-        Button statusButton;
 
         public EventViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -73,7 +69,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventViewHol
             description = itemView.findViewById(R.id.event_description);
             date = itemView.findViewById(R.id.event_date);
             location = itemView.findViewById(R.id.event_location);
-            statusButton = itemView.findViewById(R.id.status_button);
         }
     }
 }
