@@ -62,7 +62,9 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onSuccess(User user) {
                 Toast.makeText(SignInActivity.this, "Welcome back, " + user.getName(), Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(SignInActivity.this, MainActivity.class));
+                Intent intent = new Intent(SignInActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
                 finish();
             }
 

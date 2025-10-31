@@ -62,7 +62,17 @@ public class Authentication_Service {
                             Log.d(TAG, "signInWithEmail:success");
                             FirebaseUser firebaseUser = mAuth.getCurrentUser();
                             if (firebaseUser != null) {
-                                getUserProfile(firebaseUser.getUid(), callback);
+                                // Ensure auth token is ready before accessing Firestore
+                                firebaseUser.getIdToken(true).addOnCompleteListener(tokenTask -> {
+                                    if (tokenTask.isSuccessful()) {
+                                        Log.d(TAG, "Auth token refreshed, getting user profile");
+                                        getUserProfile(firebaseUser.getUid(), callback);
+                                    } else {
+                                        Log.e(TAG, "Failed to get auth token", tokenTask.getException());
+                                        // Still try to get user profile even if token refresh fails
+                                        getUserProfile(firebaseUser.getUid(), callback);
+                                    }
+                                });
                             }
                         } else {
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
@@ -104,31 +114,44 @@ public class Authentication_Service {
     }
 
     public void getUserProfile(String userId, AuthCallback callback) {
+        Log.d(TAG, "Getting user profile for userId: " + userId);
         databaseService.getUser(userId, task -> {
             if (task.isSuccessful()) {
+                Log.d(TAG, "Task successful, document exists: " + task.getResult().exists());
                 if (task.getResult().exists()) {
                     User user = task.getResult().toObject(User.class);
                     if (user != null) {
+                        Log.d(TAG, "User profile loaded successfully: " + user.getName());
                         callback.onSuccess(user);
                     } else {
+                        Log.e(TAG, "Failed to parse user data - user object is null");
                         callback.onFailure("Failed to parse user data");
                     }
                 } else {
-                    // Create new user profile for anonymous user
+                    Log.w(TAG, "User document does not exist for userId: " + userId);
+                    // Create new user profile for anonymous user or missing profile
                     FirebaseUser firebaseUser = mAuth.getCurrentUser();
                     if (firebaseUser != null) {
                         User newUser = new User(userId, firebaseUser.getEmail() != null ? firebaseUser.getEmail() : "anonymous@example.com", "Anonymous User", User.UserRole.ENTRANT);
+                        Log.d(TAG, "Creating new user profile for userId: " + userId);
                         databaseService.createUser(newUser, task1 -> {
                             if (task1.isSuccessful()) {
                                 callback.onSuccess(newUser);
                             } else {
-                                callback.onFailure("Failed to create user profile");
+                                Log.e(TAG, "Failed to create user profile", task1.getException());
+                                callback.onFailure("Failed to create user profile: " + (task1.getException() != null ? task1.getException().getMessage() : "Unknown error"));
                             }
                         });
+                    } else {
+                        Log.e(TAG, "FirebaseUser is null, cannot create profile");
+                        callback.onFailure("User not authenticated");
                     }
                 }
             } else {
-                callback.onFailure("Failed to get user profile");
+                Exception exception = task.getException();
+                Log.e(TAG, "Failed to get user profile", exception);
+                String errorMessage = exception != null ? exception.getMessage() : "Unknown error";
+                callback.onFailure("Failed to get user profile: " + errorMessage);
             }
         });
     }

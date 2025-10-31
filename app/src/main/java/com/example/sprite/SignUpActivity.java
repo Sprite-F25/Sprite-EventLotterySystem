@@ -6,6 +6,8 @@ import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,6 +21,8 @@ import com.example.sprite.Controllers.Authentication_Service;
 public class SignUpActivity extends AppCompatActivity {
     private EditText nameField, emailField, passwordField,ConfirmPasswordField, PhoneNumberField;
     private Button signUpButton;
+    private RadioGroup roleRadioGroup;
+    private RadioButton radioEntrant, radioOrganizer, radioAdmin;
     private TextView loginRedirectText;
     private Authentication_Service authService;
 
@@ -40,6 +44,12 @@ public class SignUpActivity extends AppCompatActivity {
         ConfirmPasswordField = findViewById(R.id.inputConfirmPassword);
         signUpButton = findViewById(R.id.btnSignUp);
         ImageButton backButton = findViewById(R.id.btnBackSignUp);
+        
+        // Role selection
+        roleRadioGroup = findViewById(R.id.radioGroupRole);
+        radioEntrant = findViewById(R.id.radioEntrant);
+        radioOrganizer = findViewById(R.id.radioOrganizer);
+        radioAdmin = findViewById(R.id.radioAdmin);
         //loginRedirectText = findViewById(R.id.loginRedirectText);
 
         signUpButton.setOnClickListener(v -> attemptSignUp());
@@ -68,14 +78,25 @@ public class SignUpActivity extends AppCompatActivity {
             return;
         }
 
+        // Get selected role
+        User.UserRole selectedRole = User.UserRole.ENTRANT; // Default
+        int selectedRoleId = roleRadioGroup.getCheckedRadioButtonId();
+        if (selectedRoleId == R.id.radioOrganizer) {
+            selectedRole = User.UserRole.ORGANIZER;
+        } else if (selectedRoleId == R.id.radioAdmin) {
+            selectedRole = User.UserRole.ADMIN;
+        }
+
         signUpButton.setEnabled(false);
         signUpButton.setText("Creating account...");
 
-        authService.createUserWithEmail(email, password, name, User.UserRole.ENTRANT, new Authentication_Service.AuthCallback() {
+        authService.createUserWithEmail(email, password, name, selectedRole, new Authentication_Service.AuthCallback() {
             @Override
             public void onSuccess(User user) {
                 Toast.makeText(SignUpActivity.this, "Welcome, " + user.getName(), Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(SignUpActivity.this, MainActivity.class));
+                Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
                 finish();
             }
 

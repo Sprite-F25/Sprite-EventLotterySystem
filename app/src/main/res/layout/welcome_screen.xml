@@ -84,13 +84,6 @@
                 app:iconGravity="textStart"
                 />
 
-            <Button
-                android:id="@+id/btnGuest"
-                android:text="Continue as Guest"
-                android:textColor="@color/black"
-                android:layout_width="220dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/outline_button" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

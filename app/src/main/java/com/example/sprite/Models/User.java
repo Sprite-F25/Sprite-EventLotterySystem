@@ -1,7 +1,7 @@
 package com.example.sprite.Models;
 
-import java.util.List;
 import java.util.Date;
+import java.util.List;
 
 public class User {
     private String name;
@@ -81,6 +81,15 @@ public class User {
 
     public void setRole(UserRole role) {
         this.userRole = role;
+    }
+
+    // Firestore expects getter/setter matching field name
+    public UserRole getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(UserRole userRole) {
+        this.userRole = userRole;
     }
 
     public Date getCreatedAt() {

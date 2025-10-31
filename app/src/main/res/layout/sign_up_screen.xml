@@ -92,7 +92,45 @@
             android:inputType="textPassword"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_marginBottom="10dp" />
+            android:layout_marginBottom="12dp" />
+
+        <!-- Role Selection -->
+        <TextView
+            android:text="Select Your Role"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupRole"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+
+            <RadioButton
+                android:id="@+id/radioEntrant"
+                android:text="Entrant"
+                android:checked="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp" />
+
+            <RadioButton
+                android:id="@+id/radioOrganizer"
+                android:text="Organizer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp" />
+
+            <RadioButton
+                android:id="@+id/radioAdmin"
+                android:text="Admin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RadioGroup>
 
         <!-- Terms Checkbox -->
         <CheckBox
@@ -109,39 +147,6 @@
             android:text="Sign Up"
             android:backgroundTint="@color/green2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp" />
-
-        <TextView
-            android:text="Or sign up with"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp" />
-
-        <!-- Social Buttons -->
-        <LinearLayout
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:id="@+id/btnGoogle"
-                android:text="Google"
-                android:textColor="@color/black"
-                android:background="@drawable/outline_button"
-                android:layout_marginEnd="8dp"
-                android:layout_height="wrap_content"
-                android:layout_width="140dp" />
-
-            <Button
-                android:id="@+id/btnFacebook"
-                android:text="Facebook"
-                android:textColor="@color/black"
-                android:background="@drawable/outline_button"
-                android:layout_height="wrap_content"
-                android:layout_width="140dp" />
-        </LinearLayout>
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </LinearLayout>

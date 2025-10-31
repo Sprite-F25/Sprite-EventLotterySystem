@@ -22,7 +22,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/Theme.Sprite.NoActionBar" />
         <activity android:name=".SignInActivity"
             android:theme="@style/Theme.Sprite.NoActionBar" />
         <activity android:name=".SignUpActivity"
