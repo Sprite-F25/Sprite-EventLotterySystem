@@ -1,4 +1,4 @@
-package com.example.sprite.Controllers;
+package com.example.sprite;
 
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,7 +11,6 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.sprite.R;
 import com.example.sprite.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;

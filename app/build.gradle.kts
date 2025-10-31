@@ -1,6 +1,5 @@
 plugins {
-    //alias(libs.plugins.android.application)
-    id("com.android.application")
+    alias(libs.plugins.android.application)
     id("com.google.gms.google-services")
 }
 
@@ -46,11 +45,12 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation("androidx.cardview:cardview:1.0.0")
     implementation(libs.navigation.ui)
-    implementation(libs.firebase.firestore)
-    implementation(libs.firebase.auth)
+    // Use Firebase BoM to align versions across Firebase libraries
+    implementation(platform("com.google.firebase:firebase-bom:34.4.0"))
+    implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-auth")
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
-    implementation(platform("com.google.firebase:firebase-bom:34.4.0"))
     implementation("com.google.firebase:firebase-analytics")
 }

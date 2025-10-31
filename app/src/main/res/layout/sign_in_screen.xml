@@ -24,6 +24,16 @@
             android:background="@drawable/card_background"
             android:padding="24dp">
 
+            <ImageButton
+                android:id="@+id/btnBackSignIn"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/back_button"
+                android:scaleType="fitCenter"
+                android:contentDescription="Back"
+                 />
+
             <ImageView
                 android:layout_width="120dp"
                 android:layout_height="120dp"
